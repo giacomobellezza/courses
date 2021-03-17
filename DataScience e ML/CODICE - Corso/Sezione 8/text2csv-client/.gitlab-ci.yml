@@ -1,0 +1,12 @@
+image: python:3
+
+before_script:
+  - pip install -r dev/requirements.txt
+
+test:
+  script:
+    - nosetests --with-coverage3 --cover3-inclusive --cover3-package=. --cover3-html
+  artifacts:
+    paths:
+    - cover/
+    expire_in: 1 week
